@@ -10,7 +10,6 @@ public class StringCalculator {
 
         String delimiter = ",|\n";
 
-        // Check for custom delimiter syntax at the start
         if (numbers.startsWith("//")) {
             int delimiterEndIndex = numbers.indexOf('\n');
             delimiter = Pattern.quote(numbers.substring(2, delimiterEndIndex));
@@ -21,7 +20,11 @@ public class StringCalculator {
         int sum = 0;
 
         for (String part : parts) {
-            sum += Integer.parseInt(part);
+            int num = Integer.parseInt(part);
+            if (num < 0) {
+                throw new IllegalArgumentException("negatives not allowed: " + num);
+            }
+            sum += num;
         }
 
         return sum;
