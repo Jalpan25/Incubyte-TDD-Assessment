@@ -65,4 +65,9 @@ public class StringCalculatorTest {
         StringCalculator calc = new StringCalculator();
         assertEquals(6, calc.add("//[***]\n1***2***3"));
     }
+    @Test
+    void testMultipleCustomDelimiters() {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(6, calc.add("//[*][%]\n1*2%3"));
+    }
 }
