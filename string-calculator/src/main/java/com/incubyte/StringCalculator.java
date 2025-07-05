@@ -24,9 +24,10 @@ public class StringCalculator {
 
         for (String part : parts) {
             int num = Integer.parseInt(part);
+
             if (num < 0) {
                 negatives.add(num);
-            } else {
+            } else if (num <= 1000) {
                 sum += num;
             }
         }
